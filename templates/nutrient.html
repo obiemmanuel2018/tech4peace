@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'content' %}
+
+<style>
+     .logo i{ 
+        font-size: 80px;
+        color:green;
+    }
+    .details{
+        padding: 1rem;
+    }
+
+    .details .buttons{
+        padding: 2rem;
+    }
+
+    .details .buttons button{
+        margin-right: 1rem;
+        border: none;
+        background: transparent;
+        padding-bottom: .4rem;
+        color: green;
+        font: normal bold 20px 'Darker Grotesque', sans-serif;;
+    }
+    .details .buttons .active{
+        border-bottom: 2px solid green !important;
+    }
+
+    .details .card{
+        width: 90%;
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+
+    .details .card h6{
+        font: normal bold 18px 'Darker Grotesque', sans-serif;;
+        color: green;
+    }
+
+    .details .card p{
+        font: normal bold 16px 'Darker Grotesque', sans-serif;;
+        opacity: .5;
+        word-spacing: .4rem;
+    }
+   
+    .details .card img{
+        width: 100%;
+    }
+    
+</style>
+{% include "navbar-top.html" %}
+{% include "navbar.html" %}
+<div class="details">
+    <div class="logo" style="text-align: center;">
+        <i class="fa fa-user-md"></i>
+        
+    </div>
+   
+
+
+    <div class="nutrients content">
+    {{ nutrient }}
+       
+   
+      <div class="card">
+           <img src="http://192.168.43.102:8000/{{nutrient.image}}" alt="">
+          <p>{{nutrient.description}}</p>
+         
+      </div>
+    
+    
+  
+      </div>
+</div>
+
+
+
+
+
+{% endblock 'content' %}

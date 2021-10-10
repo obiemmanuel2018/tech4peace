@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'content' %}
+<style>
+     :root {
+    --primary-color: white;
+    --secondary-color: green ;
+    --text-color: black;
+    --primary-font: 'Darker Grotesque', sans-serif;
+}
+h1{
+    color:green ;
+    font: normal bold 50px 'Darker Grotesque', sans-serif;;
+}
+small{
+    color: black !important;
+}
+    .login{
+        text-align: center;
+       
+        background: linear-gradient(to bottom right,white 80%,green 20%);
+        height: 100%;
+
+    }
+    .login .logo i{ 
+        font-size: 200px;
+        color:green;
+    }
+    .login .form{
+       
+        width: 100%;
+        
+        
+        min-height: 200px;
+    }
+    .login .form .momo-number{
+        height: 50px;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+        width: 80%;
+        border: none;
+        font: normal 500 16px 'Darker Grotesque', sans-serif;;
+        text-transform: capitalize;
+    }
+    .login .form .momo-number::placeholder{
+        font: normal 500 16px 'Darker Grotesque', sans-serif;
+        color: grey !important;
+    }
+    .login .form .momo-number:focus{
+        border: 1px solid green !important;
+    }
+   
+   
+   .login img{
+    
+       margin-top: 1rem;
+       width: 60px;
+       height: 60px;
+       
+   }
+   .login .pay{
+       width: 80%;
+       height: 60px;
+       border-radius: 20px;
+       background:linear-gradient(to  right,green 10%,white 90%);
+       border: 1px solid grey;
+       font: normal bold 18px 'Darker Grotesque', sans-serif;;;
+   }
+   .login h6{
+       font: normal 500 20px 'Darker Grotesque', sans-serif;
+       text-transform: capitalize;
+   }
+   
+</style>
+<div class="login">
+    <div class="logo">
+        <div>
+            <i class="fa fa-user-md"></i>
+
+        </div>
+       
+        <img src="{% static 'images/mtn.png' %}" alt="">
+    </div>
+    <div class="form">
+
+        <form action="{% url 'care:routines' %}" method="POST">
+            {% csrf_token %}
+            <div style="text-align: start;padding-left: 2.3rem;margin-bottom: 1rem;">
+         <h6>Please select subscription plan</h6>
+        
+         </div>
+         <div style="text-align: start;padding-left: 2.3rem;margin-bottom: 1rem;">
+            <input type="radio" checked id="contactChoice1"
+            name="contact" value="email">
+
+           <label for="contactChoice1">6 months ( 5,000cfa)</label>
+        </div>
+        <div style="text-align: start;padding-left: 2.3rem;margin-bottom: 1rem;">
+           <input type="radio" id="contactChoice1"
+           name="contact" value="email">
+          <label for="contactChoice1">1 year ( 10,000cfa)</label>
+        </div>
+      
+         <div style="text-align: start;padding-left: 2.3rem;margin-bottom: 1rem;">
+            <input class="momo-number" value="681142867" disabled type="number" placeholder="momo number">
+           </div>
+
+           
+        <button type="submit" class="pay">
+            Subscribe <i class="fa fa-arrow-right"></i>
+        </button>
+        </form>
+
+    </div>
+</div>
+  
+{% endblock 'content' %}

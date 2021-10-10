@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block 'content' %}
+<style>
+     :root {
+    --primary-color: white;
+    --secondary-color: green ;
+    --text-color: black;
+    --primary-font: 'Darker Grotesque', sans-serif;
+}
+h1{
+    color:green ;
+    font: normal bold 50px 'Darker Grotesque', sans-serif;;
+}
+
+    .login{
+        text-align: center;
+       
+        background: linear-gradient(to bottom right,white 70%,green 30%);
+        height: 100%;
+
+    }
+    .login .logo i{ 
+        font-size: 230px;
+        color:green;
+    }
+    .login .form{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        
+        height: 200px;
+    }
+    .login .form input{
+        height: 50px;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+        width: 80%;
+        border: none;
+        font: normal 500 16px 'Darker Grotesque', sans-serif;;
+        text-transform: capitalize;
+    }
+    .login .form input::placeholder{
+        font: normal 500 16px 'Darker Grotesque', sans-serif;
+        color: grey !important;
+    }
+    .login .form input:focus{
+        border: 1px solid green !important;
+    }
+    .login .form button{
+        height: 40px;
+        width:40px;
+        border-radius: 50%;
+        background:white;
+        border: 2px solid white;
+        color: green;
+        position: absolute;
+        right: 12%;
+    }
+    .login .form button i{
+        font-size: 30px;
+    }
+</style>
+
+<div class="login">
+    <div class="logo">
+        <i class="fa fa-user-md"></i>
+        <h1>2P<small style="color:skyblue;">care</small> </h1>
+    </div>
+    <div class="form">
+
+        <form action="{% url 'care:payment' %}" method="POST">
+            {% csrf_token %}
+            <div>
+                <input type="text" placeholder='hospital ID' disabled value="SWG-39800">
+
+            </div>
+            <div class="div">
+                <input type="text" placeholder='phone number' value="681142867" disabled>
+                
+            
+            
+            </div>
+            <div>
+                <button type="submit">
+                    <i class="fa fa-arrow-right"></i>
+                </button>
+               
+            </div>
+          
+        </form>
+
+    </div>
+</div>
+  
+{% endblock 'content' %}

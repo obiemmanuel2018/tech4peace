@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'content' %}
+
+<style>
+     .logo i{ 
+        font-size: 80px;
+        color:green;
+    }
+    .details{
+        padding: 1rem;
+    }
+
+    .details .buttons{
+        padding: 2rem;
+    }
+
+    .details .buttons button{
+        margin-right: 1rem;
+        border: none;
+        background: transparent;
+        padding-bottom: .4rem;
+        color: green;
+        font: normal bold 20px 'Darker Grotesque', sans-serif;;
+    }
+    .details .buttons .active{
+        border-bottom: 2px solid green !important;
+    }
+
+    .details .card{
+        width: 90%;
+        margin: auto;
+        margin-bottom: 1rem;
+    }
+
+    .details .card h6{
+        font: normal bold 18px 'Darker Grotesque', sans-serif;;
+        color: green;
+    }
+
+    .details .card p{
+        font: normal bold 16px 'Darker Grotesque', sans-serif;;
+        opacity: .5;
+        word-spacing: .4rem;
+    }
+    .details .card img{
+        width: 100%;
+    }
+    
+</style>
+{% include "navbar-top.html" %}
+{% include "navbar.html" %}
+<div class="details">
+    <div class="logo" style="text-align: center;">
+        <i class="fa fa-user-md"></i>
+        
+    </div>
+    <div class="buttons">
+        <button class="active tab" id="nutrient">Nutrients</button>
+        <button class="tab" id="exercise">Exercises</button>
+    </div>
+
+    <div class="exercises content " style="display: none;">
+      <div class="card">
+          <h6>Exercise 1</h6>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam quo modi porro, ut fugiat vero Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos adipisci eaque voluptates velit delectus reprehenderit repudiandae enim numquam nihil aliquid.</p>
+          <img src="{% static 'images/image1.png'%}" alt="">
+      </div>
+      <div class="card">
+        <h6>Exercise 2</h6>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam quo modi porro, ut fugiat vero Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos adipisci eaque voluptates velit delectus reprehenderit repudiandae enim numquam nihil aliquid.</p>
+        <img src="{% static 'images/image2.png'%}" alt="">
+    </div>
+    <div class="card">
+        <h6>Exercise 3</h6>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam quo modi porro, ut fugiat vero Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos adipisci eaque voluptates velit delectus reprehenderit repudiandae enim numquam nihil aliquid.</p>
+        <img src="{% static 'images/image3.png'%}" alt="">
+    </div>
+
+    <div class="card">
+        <h6>Exercise 4</h6>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam quo modi porro, ut fugiat vero Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos adipisci eaque voluptates velit delectus reprehenderit repudiandae enim numquam nihil aliquid.</p>
+        <img src="{% static 'images/image4.png'%}" alt="">
+    </div>
+
+    </div>
+    <div class="nutrients content">
+        <div class="card">
+            <h6>Nutrient 1</h6>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam quo modi porro, ut fugiat vero Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos adipisci eaque voluptates velit delectus reprehenderit repudiandae enim numquam nihil aliquid.</p>
+            <img src="{% static 'images/nutrient1.png'%}" alt="">
+        </div>
+        <div class="card">
+          <h6>Nutrient 2</h6>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam quo modi porro, ut fugiat vero Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos adipisci eaque voluptates velit delectus reprehenderit repudiandae enim numquam nihil aliquid.</p>
+          <img src="{% static 'images/nutrient2.png'%}" alt="">
+      </div>
+      <div class="card">
+          <h6>Nutrient 3</h6>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam quo modi porro, ut fugiat vero Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos adipisci eaque voluptates velit delectus reprehenderit repudiandae enim numquam nihil aliquid.</p>
+          <img src="{% static 'images/nutrient3.png'%}" alt="">
+      </div>
+  
+      <div class="card">
+          <h6>Nutrient 4</h6>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam quo modi porro, ut fugiat vero Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos adipisci eaque voluptates velit delectus reprehenderit repudiandae enim numquam nihil aliquid.</p>
+          <img src="{% static 'images/nutrient4.png'%}" alt="">
+      </div>
+  
+      </div>
+</div>
+
+
+<script>
+
+    $(document).ready(function(){
+        $('#nutrient').click(function(){
+            var nutrientContainer = $('.nutrients');
+            var exerciseContainer = $('.exercises');
+            $('.tab').each(function(){
+                $(this).removeClass('active');
+
+            });
+            $(this).addClass('active');
+             
+            exerciseContainer.fadeOut(0,function(){
+                nutrientContainer.fadeIn('slow');
+            })
+
+            
+        });
+        $('#exercise').click(function(){
+            var nutrientContainer = $('.nutrients');
+            var exerciseContainer = $('.exercises');
+            $('.tab').each(function(){
+                $(this).removeClass('active');
+
+            });
+            $(this).addClass('active');
+             
+            nutrientContainer.fadeOut(0,function(){
+               exerciseContainer.fadeIn('slow');
+            })
+
+        })
+    })
+</script>
+
+
+
+{% endblock 'content' %}
